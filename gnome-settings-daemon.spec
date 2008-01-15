@@ -38,6 +38,7 @@ background.
 %package devel
 Summary:	Include files for the GNOME settings daemon
 Group:		Development/GNOME and GTK+
+Conflicts: libgnome-window-settings-devel < 2.21.5
 
 %description devel
 Include files for the GNOME settings daemon
