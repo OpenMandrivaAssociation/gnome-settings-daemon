@@ -81,7 +81,25 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
 %_datadir/%name
-%{_libexecdir}/gnome-settings-daemon
+%dir %{_libdir}/%name
+%{_libdir}/%name/%name
+%dir %{_libdir}/%name/plugins
+%{_libdir}/%name/plugins/a11y-keyboard/
+%{_libdir}/%name/plugins/dummy/        
+%{_libdir}/%name/plugins/media-keys/   
+%{_libdir}/%name/plugins/typing-break/
+%{_libdir}/%name/plugins/background/      
+%{_libdir}/%name/plugins/font/         
+%{_libdir}/%name/plugins/mouse/        
+%{_libdir}/%name/plugins/xrandr/
+%{_libdir}/%name/plugins/clipboard/       
+%{_libdir}/%name/plugins/keybindings/  
+%{_libdir}/%name/plugins/screensaver/  
+%{_libdir}/%name/plugins/xrdb/
+%{_libdir}/%name/plugins/default-editor/  
+%{_libdir}/%name/plugins/keyboard/     
+%{_libdir}/%name/plugins/sound/        
+%{_libdir}/%name/plugins/xsettings/
 %_datadir/dbus-1/services/*
 
 %files devel
