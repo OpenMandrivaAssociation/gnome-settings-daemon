@@ -1,7 +1,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.21.5.2
-Release: %mkrel 2
+Version: 2.21.90
+Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.21.4
@@ -17,8 +17,6 @@ BuildRequires:  perl-XML-Parser
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-# (fc) 2.21.5.2-2mdv fix missing XFT xsettings export (Mdv bug #37037) (GNOME bug #511221)
-Patch0: gnome-settings-daemon-2.21.5-xft.patch
 
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
@@ -46,14 +44,9 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q 
-%patch0 -p1 -b .xft
-
-#needed by patch0
-autoreconf
 
 %build
-%configure2_5x --enable-gstreamer=0.10 --libexecdir=%_libdir/gnome-settings-daemon
-
+%configure2_5x --enable-gstreamer=0.10
 %make
 
 %install
