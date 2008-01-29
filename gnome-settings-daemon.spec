@@ -1,6 +1,6 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.21.90
+Version: 2.21.90.1
 Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
@@ -46,7 +46,7 @@ Include files for the GNOME settings daemon
 %setup -q 
 
 %build
-%configure2_5x --enable-gstreamer=0.10
+%configure2_5x --enable-gstreamer=0.10 --libexecdir=%_libdir/%name
 %make
 
 %install
