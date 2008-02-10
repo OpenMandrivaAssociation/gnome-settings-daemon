@@ -27,7 +27,7 @@ Requires: gnome-screensaver
 Requires: gnome-desktop >= 2.1.4
 Requires: gnome-themes
 Requires: metacity
-Conflicts: gnome-control-center < 2.21.5
+Conflicts: gnome-control-center < 2.21.90
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
