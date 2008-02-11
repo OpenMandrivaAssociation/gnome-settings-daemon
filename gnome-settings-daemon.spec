@@ -1,6 +1,6 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.21.90.2
+Version: 2.21.91
 Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
@@ -46,7 +46,7 @@ Include files for the GNOME settings daemon
 %setup -q 
 
 %build
-%configure2_5x --enable-gstreamer=0.10 --libexecdir=%_libdir/%name
+%configure2_5x --enable-gstreamer=0.10
 %make
 
 %install
@@ -56,7 +56,7 @@ GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
 %{find_lang} %name-2.0 --with-gnome --all-name
 
-rm -f %buildroot%_libdir/%name/plugins/*/*a
+rm -f %buildroot%_libdir/%name-2.0/*a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,25 +79,24 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
 %_datadir/%name
-%dir %{_libdir}/%name
-%{_libdir}/%name/%name
-%dir %{_libdir}/%name/plugins
-%{_libdir}/%name/plugins/a11y-keyboard/
-%{_libdir}/%name/plugins/dummy/        
-%{_libdir}/%name/plugins/media-keys/   
-%{_libdir}/%name/plugins/typing-break/
-%{_libdir}/%name/plugins/background/      
-%{_libdir}/%name/plugins/font/         
-%{_libdir}/%name/plugins/mouse/        
-%{_libdir}/%name/plugins/xrandr/
-%{_libdir}/%name/plugins/clipboard/       
-%{_libdir}/%name/plugins/keybindings/  
-%{_libdir}/%name/plugins/screensaver/  
-%{_libdir}/%name/plugins/xrdb/
-%{_libdir}/%name/plugins/default-editor/  
-%{_libdir}/%name/plugins/keyboard/     
-%{_libdir}/%name/plugins/sound/        
-%{_libdir}/%name/plugins/xsettings/
+%{_libexecdir}/%name
+%dir %{_libdir}/%name-2.0
+%{_libdir}/%name-2.0/*.so
+%{_libdir}/%name-2.0/a11y-keyboard.gnome-settings-plugin
+%{_libdir}/%name-2.0/background.gnome-settings-plugin
+%{_libdir}/%name-2.0/clipboard.gnome-settings-plugin
+%{_libdir}/%name-2.0/dummy.gnome-settings-plugin
+%{_libdir}/%name-2.0/font.gnome-settings-plugin
+%{_libdir}/%name-2.0/keybindings.gnome-settings-plugin
+%{_libdir}/%name-2.0/keyboard.gnome-settings-plugin
+%{_libdir}/%name-2.0/media-keys.gnome-settings-plugin
+%{_libdir}/%name-2.0/mouse.gnome-settings-plugin
+%{_libdir}/%name-2.0/screensaver.gnome-settings-plugin
+%{_libdir}/%name-2.0/sound.gnome-settings-plugin
+%{_libdir}/%name-2.0/typing-break.gnome-settings-plugin
+%{_libdir}/%name-2.0/xrandr.gnome-settings-plugin
+%{_libdir}/%name-2.0/xrdb.gnome-settings-plugin
+%{_libdir}/%name-2.0/xsettings.gnome-settings-plugin
 %_datadir/dbus-1/services/*
 
 %files devel
