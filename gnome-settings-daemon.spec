@@ -1,7 +1,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.21.91
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.21.4
@@ -60,6 +60,11 @@ rm -f %buildroot%_libdir/%name-2.0/*a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%pre
+if [ -d %{_libexecdir}/%name ]
+  then rm -rf %{_libexecdir}/%name 
+fi
 
 %post
 %define schemas apps_gnome_settings_daemon_default_editor apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering gnome-settings-daemon
