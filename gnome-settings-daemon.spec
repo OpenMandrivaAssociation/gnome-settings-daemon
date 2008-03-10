@@ -1,7 +1,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.21.92
-Release: %mkrel 2
+Version: 2.22.0
+Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.21.4
@@ -68,7 +68,7 @@ if [ -d %{_libexecdir}/%name ]
 fi
 
 %post
-%define schemas apps_gnome_settings_daemon_default_editor apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering gnome-settings-daemon
+%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering gnome-settings-daemon
 %post_install_gconf_schemas %schemas
 
 %preun
@@ -79,7 +79,6 @@ fi
 %files -f %{name}-2.0.lang
 %defattr(-, root, root)
 %doc AUTHORS NEWS README
-%{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
