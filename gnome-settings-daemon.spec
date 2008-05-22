@@ -1,3 +1,6 @@
+# disable underlinking, it doesn't work well with plugins
+%define _disable_ld_no_undefined 1
+
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.22.1
