@@ -1,7 +1,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.22.1
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.21.4
@@ -17,6 +17,10 @@ BuildRequires:  perl-XML-Parser
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+# (fc) 2.22.1-2mdv apply background even if nautilus is enabled (GNOME bug #531487)
+Patch0:	gnome-settings-daemon-2.22.1-applybackground.patch
+# (fc) 2.22.1-2mdv don't apply background when it is disabled 
+Patch1: gnome-settings-daemon-2.22.1-disablebackground.patch
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
@@ -44,6 +48,8 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q 
+%patch0 -p1 -b .applybackground
+%patch1 -p1 -b .disablebackground
 
 %build
 %configure2_5x --enable-gstreamer=0.10 --disable-esd
