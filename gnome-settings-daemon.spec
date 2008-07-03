@@ -3,11 +3,11 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.22.2.1
+Version: 2.23.4
 Release: %mkrel 1
-License: GPL
+License: GPLv2+
 Group: Graphical desktop/GNOME
-BuildRequires:	gnome-desktop-devel >= 2.21.4
+BuildRequires:	gnome-desktop-devel >= 2.23.4
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	libglade2.0-devel
 BuildRequires:  libxklavier-devel >= 3.3
@@ -20,15 +20,13 @@ BuildRequires:  perl-XML-Parser
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-# (fc) 2.22.1-2mdv don't apply background when it is disabled 
-Patch1: gnome-settings-daemon-2.22.1-disablebackground.patch
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 URL: http://www.gnome.org/softwaremap/projects/control-center/
 
 Requires: gnome-screensaver
-Requires: gnome-desktop >= 2.1.4
+Requires: gnome-desktop >= 2.23.2
 Requires: gnome-themes
 Requires: metacity
 Suggests: mandriva-theme
@@ -49,7 +47,6 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q 
-%patch1 -p1 -b .disablebackground
 
 %build
 %configure2_5x --enable-gstreamer=0.10 --disable-esd
@@ -84,6 +81,7 @@ fi
 %files -f %{name}-2.0.lang
 %defattr(-, root, root)
 %doc AUTHORS NEWS README
+%config(noreplace) %{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
@@ -97,6 +95,7 @@ fi
 %{_libdir}/%name-2.0/clipboard.gnome-settings-plugin
 %{_libdir}/%name-2.0/dummy.gnome-settings-plugin
 %{_libdir}/%name-2.0/font.gnome-settings-plugin
+%{_libdir}/%name-2.0/housekeeping.gnome-settings-plugin
 %{_libdir}/%name-2.0/keybindings.gnome-settings-plugin
 %{_libdir}/%name-2.0/keyboard.gnome-settings-plugin
 %{_libdir}/%name-2.0/media-keys.gnome-settings-plugin
