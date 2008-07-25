@@ -3,8 +3,8 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.23.4
-Release: %mkrel 2
+Version: 2.23.5
+Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.23.4
@@ -74,11 +74,13 @@ fi
 %post
 %define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering gnome-settings-daemon
 %post_install_gconf_schemas %schemas
+%update_icon_cache hicolor
 
 %preun
 %preun_uninstall_gconf_schemas %schemas
 
-
+%postun
+%clean_icon_cache hicolor
 
 %files -f %{name}-2.0.lang
 %defattr(-, root, root)
@@ -89,6 +91,7 @@ fi
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
 %_datadir/%name
+%_datadir/icons/hicolor/*/apps/*
 %{_libexecdir}/%name
 %dir %{_libdir}/%name-2.0
 %{_libdir}/%name-2.0/*.so
