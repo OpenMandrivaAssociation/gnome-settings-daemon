@@ -4,7 +4,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.23.6
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.23.4
@@ -21,6 +21,8 @@ BuildRequires:	intltool
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 #gw: from Fedora, ignore evdev keyboards
 Patch2:         gnome-settings-daemon-2.21.91-ignore-model-if-evdev.patch
+# (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
+Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
@@ -49,6 +51,7 @@ Include files for the GNOME settings daemon
 %prep
 %setup -q 
 %patch2 -p1 -b .ignore-layout-if-using-evdev
+%patch3 -p1 -b .dpi
 
 %build
 %configure2_5x --enable-gstreamer=0.10 --disable-esd
