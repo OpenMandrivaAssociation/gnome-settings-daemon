@@ -3,7 +3,7 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.23.90
+Version: 2.23.91
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -16,6 +16,7 @@ BuildRequires:  libgstreamer-plugins-base-devel
 BuildRequires:  libxscrnsaver-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	libgnomekbd-devel >= 2.21.4
+BuildRequires:	libnotify-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
