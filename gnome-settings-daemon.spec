@@ -3,8 +3,8 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.25.1
-Release: %mkrel 2
+Version: 2.25.2
+Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.23.90
@@ -21,7 +21,7 @@ BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 #gw: from Fedora, ignore evdev keyboards
-Patch2:         gnome-settings-daemon-2.21.91-ignore-model-if-evdev.patch
+Patch2:         gnome-settings-daemon-2.25.2-ignore-layout-if-using-evdev.patch
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 Requires: gstreamer0.10-plugins-base
@@ -55,7 +55,7 @@ Include files for the GNOME settings daemon
 %patch3 -p1 -b .dpi
 
 %build
-%configure2_5x --enable-gstreamer=0.10 --disable-esd
+%configure2_5x --enable-gstreamer=0.10
 %make
 
 %install
@@ -76,7 +76,7 @@ if [ -d %{_libexecdir}/%name ]
 fi
 
 %post
-%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering gnome-settings-daemon apps_gnome_settings_daemon_xrandr
+%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering desktop_gnome_keybindings gnome-settings-daemon apps_gnome_settings_daemon_xrandr
 %post_install_gconf_schemas %schemas
 %update_icon_cache hicolor
 
@@ -94,6 +94,7 @@ fi
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_xrandr.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_keybindings.schemas
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/*
