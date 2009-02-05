@@ -3,7 +3,7 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.25.3
+Version: 2.25.90
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -96,6 +96,7 @@ fi
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_keybindings.schemas
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
+%_datadir/gnome-control-center/keybindings/50-accessibility.xml
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/*
 %{_libexecdir}/%name
@@ -112,6 +113,7 @@ fi
 %{_libdir}/%name-2.0/media-keys.gnome-settings-plugin
 %{_libdir}/%name-2.0/mouse.gnome-settings-plugin
 %{_libdir}/%name-2.0/screensaver.gnome-settings-plugin
+%{_libdir}/%name-2.0/sound.gnome-settings-plugin
 %{_libdir}/%name-2.0/typing-break.gnome-settings-plugin
 %{_libdir}/%name-2.0/xrandr.gnome-settings-plugin
 %{_libdir}/%name-2.0/xrdb.gnome-settings-plugin
