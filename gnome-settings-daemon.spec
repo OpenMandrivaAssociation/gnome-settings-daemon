@@ -4,7 +4,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.25.90
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.25.3
@@ -19,6 +19,7 @@ BuildRequires:	libgnomekbd-devel >= 2.21.4
 BuildRequires:	libnotify-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
+BuildRequires:  pulseaudio-devel
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 #gw: from Fedora, ignore evdev keyboards
 Patch2:         gnome-settings-daemon-2.25.2-ignore-layout-if-using-evdev.patch
