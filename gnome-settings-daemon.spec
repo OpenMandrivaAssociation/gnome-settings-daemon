@@ -4,7 +4,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.26.0
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.25.3
@@ -25,6 +25,11 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch2:         gnome-settings-daemon-2.25.2-ignore-layout-if-using-evdev.patch
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
+# (cg) 2.26.0-2mdv Fedora patches for touchpad support
+Patch4: gnome-settings-daemon-2.24.0-fix-touchpad.patch
+Patch5: gnome-settings-daemon-2.26.0-support-touchpads.patch
+Patch6: gnome-settings-daemon-2.26.0-touchpad-edgescroll-default.patch
+
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
@@ -54,6 +59,9 @@ Include files for the GNOME settings daemon
 %setup -q 
 %patch2 -p1 -b .ignore-layout-if-using-evdev
 %patch3 -p1 -b .dpi
+%patch4 -p1 -b .touchpad-fix
+%patch5 -p1 -b .touchpad-support
+%patch6 -p1 -b .touchpad-edgescroll
 
 %build
 %configure2_5x --enable-gstreamer=0.10
