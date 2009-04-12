@@ -4,7 +4,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.26.0
-Release: %mkrel 2
+Release: %mkrel 3
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.25.3
@@ -28,7 +28,7 @@ Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 # (cg) 2.26.0-2mdv Fedora patches for touchpad support
 Patch4: gnome-settings-daemon-2.24.0-fix-touchpad.patch
 Patch5: gnome-settings-daemon-2.26.0-support-touchpads.patch
-Patch6: gnome-settings-daemon-2.26.0-touchpad-edgescroll-default.patch
+Patch6: gnome-settings-daemon-2.26.0-touchpad-defaults.patch
 
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
@@ -64,6 +64,7 @@ Include files for the GNOME settings daemon
 %patch6 -p1 -b .touchpad-edgescroll
 
 %build
+autoreconf -i -f
 %configure2_5x --enable-gstreamer=0.10
 %make
 
@@ -85,7 +86,7 @@ if [ -d %{_libexecdir}/%name ]
 fi
 
 %post
-%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering desktop_gnome_keybindings gnome-settings-daemon apps_gnome_settings_daemon_xrandr
+%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_screensaver desktop_gnome_font_rendering desktop_gnome_keybindings desktop_gnome_peripherals_touchpad gnome-settings-daemon apps_gnome_settings_daemon_xrandr
 %post_install_gconf_schemas %schemas
 %update_icon_cache hicolor
 
@@ -104,6 +105,7 @@ fi
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_xrandr.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_keybindings.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_touchpad.schemas
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
 %_datadir/gnome-control-center/keybindings/50-accessibility.xml
 %_datadir/%name
