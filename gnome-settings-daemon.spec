@@ -3,7 +3,7 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.27.1
+Version: 2.27.3
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -57,7 +57,7 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q 
-%patch2 -p1 -b .ignore-layout-if-using-evdev
+#%patch2 -p1 -b .ignore-layout-if-using-evdev
 %patch3 -p1 -b .dpi
 %patch4 -p1 -b .touchpad-fix
 %patch5 -p1 -b .touchpad-support
