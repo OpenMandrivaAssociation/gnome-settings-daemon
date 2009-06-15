@@ -21,8 +21,6 @@ BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 BuildRequires:  pulseaudio-devel
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-#gw: from Fedora, ignore evdev keyboards
-Patch2:         gnome-settings-daemon-2.25.2-ignore-layout-if-using-evdev.patch
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 # (cg) 2.26.0-2mdv Fedora patches for touchpad support
@@ -57,7 +55,6 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q 
-#%patch2 -p1 -b .ignore-layout-if-using-evdev
 %patch3 -p1 -b .dpi
 %patch4 -p1 -b .touchpad-fix
 %patch5 -p1 -b .touchpad-support
