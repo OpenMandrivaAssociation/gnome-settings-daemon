@@ -3,13 +3,11 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.27.4
+Version: 2.27.5
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.25.3
-BuildRequires:	libgnomeui2-devel
-BuildRequires:	libglade2.0-devel
 BuildRequires:  libxklavier-devel >= 4.0
 BuildRequires:  libxxf86misc-devel
 BuildRequires:  libgstreamer-plugins-base-devel
@@ -59,8 +57,7 @@ Include files for the GNOME settings daemon
 %patch6 -p1 -b .touchpad-edgescroll
 
 %build
-autoreconf -i -f
-%configure2_5x --enable-gstreamer=0.10
+%configure2_5x
 %make
 
 %install
@@ -81,7 +78,7 @@ if [ -d %{_libexecdir}/%name ]
 fi
 
 %post
-%define schemas apps_gnome_settings_daemon_keybindings desktop_gnome_font_rendering desktop_gnome_keybindings desktop_gnome_peripherals_touchpad gnome-settings-daemon apps_gnome_settings_daemon_xrandr
+%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_housekeeping desktop_gnome_font_rendering desktop_gnome_keybindings desktop_gnome_peripherals_touchpad gnome-settings-daemon apps_gnome_settings_daemon_xrandr
 %post_install_gconf_schemas %schemas
 %update_icon_cache hicolor
 
@@ -95,6 +92,7 @@ fi
 %defattr(-, root, root)
 %doc AUTHORS NEWS README
 %config(noreplace) %{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
+%{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_housekeeping.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_xrandr.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
