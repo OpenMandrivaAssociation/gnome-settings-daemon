@@ -3,7 +3,7 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.27.90
+Version: 2.27.91
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
