@@ -3,7 +3,7 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.27.91
+Version: 2.27.92
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -103,6 +103,7 @@ fi
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/*
 %{_libexecdir}/%name
+%{_libexecdir}/gsd-locate-pointer
 %dir %{_libdir}/%name-2.0
 %{_libdir}/%name-2.0/*.so
 %{_libdir}/%name-2.0/a11y-keyboard.gnome-settings-plugin
