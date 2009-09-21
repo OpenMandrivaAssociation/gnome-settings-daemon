@@ -3,7 +3,7 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.27.92
+Version: 2.28.0
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -22,7 +22,7 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 # (cg) 2.26.0-2mdv Fedora patches for touchpad support
-Patch4: gnome-settings-daemon-2.24.0-fix-touchpad.patch
+Patch4: gnome-settings-daemon-2.28.0-fix-touchpad.patch
 Patch6: gnome-settings-daemon-2.27.4-touchpad-defaults.patch
 
 Requires: gstreamer0.10-plugins-base
@@ -109,7 +109,6 @@ fi
 %{_libdir}/%name-2.0/a11y-keyboard.gnome-settings-plugin
 %{_libdir}/%name-2.0/background.gnome-settings-plugin
 %{_libdir}/%name-2.0/clipboard.gnome-settings-plugin
-%{_libdir}/%name-2.0/dummy.gnome-settings-plugin
 %{_libdir}/%name-2.0/font.gnome-settings-plugin
 %{_libdir}/%name-2.0/housekeeping.gnome-settings-plugin
 %{_libdir}/%name-2.0/keybindings.gnome-settings-plugin
