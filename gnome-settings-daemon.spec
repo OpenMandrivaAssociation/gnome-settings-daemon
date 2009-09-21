@@ -18,6 +18,7 @@ BuildRequires:	libnotify-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 BuildRequires:  pulseaudio-devel
+BuildRequires:  libcanberra-devel
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
