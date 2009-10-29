@@ -4,7 +4,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.28.1
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.25.3
@@ -25,6 +25,8 @@ Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 # (cg) 2.26.0-2mdv Fedora patches for touchpad support
 Patch4: gnome-settings-daemon-2.28.0-fix-touchpad.patch
 Patch6: gnome-settings-daemon-2.27.4-touchpad-defaults.patch
+# (fc) 2.28.1-2mdv fix fuzziness (GNOME bug #567249) (GIT)
+Patch7: gnome-settings-daemon-2.28.1-fix-fuzziness.patch
 
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
@@ -56,6 +58,7 @@ Include files for the GNOME settings daemon
 %patch3 -p1 -b .dpi
 %patch4 -p1 -b .touchpad-fix
 %patch6 -p1 -b .touchpad-edgescroll
+%patch7 -p1 -b .fixfuzziness
 
 %build
 %configure2_5x
