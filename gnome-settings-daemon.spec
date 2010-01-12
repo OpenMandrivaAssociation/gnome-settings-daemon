@@ -3,8 +3,8 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.28.1
-Release: %mkrel 3
+Version: 2.29.5
+Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.25.3
@@ -20,15 +20,11 @@ BuildRequires:	intltool
 BuildRequires:  pulseaudio-devel
 BuildRequires:  libcanberra-devel
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-#gw rediffed from git, build with libxklavier 5.0
-Patch: gnome-settings-daemon-new-libxklavier.patch
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 # (cg) 2.26.0-2mdv Fedora patches for touchpad support
 Patch4: gnome-settings-daemon-2.28.0-fix-touchpad.patch
 Patch6: gnome-settings-daemon-2.27.4-touchpad-defaults.patch
-# (fc) 2.28.1-2mdv fix fuzziness (GNOME bug #567249) (GIT)
-Patch7: gnome-settings-daemon-2.28.1-fix-fuzziness.patch
 
 Requires: gstreamer0.10-plugins-base
 Requires: gstreamer0.10-plugins-good
@@ -57,12 +53,9 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q 
-%patch -p1
 %patch3 -p1 -b .dpi
 %patch4 -p1 -b .touchpad-fix
 %patch6 -p1 -b .touchpad-edgescroll
-%patch7 -p1 -b .fixfuzziness
-autoreconf -fi
 
 %build
 %configure2_5x
