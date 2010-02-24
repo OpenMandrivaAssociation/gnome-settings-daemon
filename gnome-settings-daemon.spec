@@ -3,7 +3,7 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.29.90
+Version: 2.29.91.1
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -102,6 +102,7 @@ fi
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
 %_datadir/gnome-control-center/keybindings/50-accessibility.xml
 %_datadir/%name
+%_datadir/icons/hicolor/*/actions/*
 %_datadir/icons/hicolor/*/apps/*
 %{_libexecdir}/%name
 %{_libexecdir}/gsd-locate-pointer
