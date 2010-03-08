@@ -3,11 +3,11 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.29.91.1
+Version: 2.29.92
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
-BuildRequires:	gnome-desktop-devel >= 2.25.3
+BuildRequires:	gnome-desktop-devel >= 2.29.92
 BuildRequires:  libxklavier-devel >= 5.0
 BuildRequires:  libxxf86misc-devel
 BuildRequires:  libgstreamer-plugins-base-devel
