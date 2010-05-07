@@ -4,7 +4,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.30.1
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.29.92
@@ -26,16 +26,9 @@ Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 Patch4: gnome-settings-daemon-2.28.0-fix-touchpad.patch
 Patch6: gnome-settings-daemon-2.27.4-touchpad-defaults.patch
 
-Requires: gstreamer0.10-plugins-base
-Requires: gstreamer0.10-plugins-good
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-URL: http://www.gnome.org/softwaremap/projects/control-center/
+URL: http://www.gnome.org/
 
-Requires: gnome-screensaver
-Requires: gnome-desktop >= 2.23.2
-Requires: gnome-themes
-Requires: metacity
-Suggests: mandriva-theme
 Conflicts: gnome-control-center < 2.21.90
 
 %description
