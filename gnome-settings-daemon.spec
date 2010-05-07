@@ -4,7 +4,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.30.1
-Release: %mkrel 2
+Release: %mkrel 3
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.29.92
@@ -30,6 +30,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 URL: http://www.gnome.org/
 
 Conflicts: gnome-control-center < 2.21.90
+Requires: libgnome2-schemas
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
