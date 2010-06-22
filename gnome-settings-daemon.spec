@@ -3,8 +3,8 @@
 
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.30.1
-Release: %mkrel 4
+Version: 2.30.2
+Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gnome-desktop-devel >= 2.29.92
@@ -25,8 +25,6 @@ Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 # (cg) 2.26.0-2mdv Fedora patches for touchpad support
 Patch4: gnome-settings-daemon-2.28.0-fix-touchpad.patch
 Patch6: gnome-settings-daemon-2.27.4-touchpad-defaults.patch
-# (fc) 2.30.1-4mdv various bug fixes (GIT)
-Patch7:	gnome-settings-daemon-2.30.1-gitfixes.patch
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 URL: http://www.gnome.org/
@@ -52,7 +50,6 @@ Include files for the GNOME settings daemon
 %patch3 -p1 -b .dpi
 %patch4 -p1 -b .touchpad-fix
 %patch6 -p1 -b .touchpad-edgescroll
-%patch7 -p1 -b .gitfixes
 
 %build
 %configure2_5x
