@@ -1,24 +1,24 @@
-# disable underlinking, it doesn't work well with plugins
-%define _disable_ld_no_undefined 1
-
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 2.30.2
+Version: 2.31.6
 Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
-BuildRequires:	gnome-desktop-devel >= 2.29.92
+BuildRequires:	gtk+2-devel
+BuildRequires:	gnome-desktop-devel
 BuildRequires:  libxklavier-devel >= 5.0
 BuildRequires:  libxxf86misc-devel
 BuildRequires:  libgstreamer-plugins-base-devel
 BuildRequires:  libxscrnsaver-devel
 BuildRequires:	dbus-glib-devel
-BuildRequires:	libgnomekbd-devel >= 2.21.4
+BuildRequires:	libgnomekbd-devel >= 2.31.2
 BuildRequires:	libnotify-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 BuildRequires:  pulseaudio-devel
 BuildRequires:  libcanberra-devel
+BuildRequires:  polkit-1-devel
+BuildRequires:  libnss-devel
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
@@ -58,7 +58,7 @@ Include files for the GNOME settings daemon
 %install
 rm -rf $RPM_BUILD_ROOT
 
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
+GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall xmldir=%buildroot%_datadir/gnome-control-center/keybindings
 
 %{find_lang} %name-2.0 --with-gnome --all-name
 
@@ -73,7 +73,7 @@ if [ -d %{_libexecdir}/%name ]
 fi
 
 %post
-%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_housekeeping desktop_gnome_font_rendering desktop_gnome_keybindings desktop_gnome_peripherals_touchpad gnome-settings-daemon apps_gnome_settings_daemon_xrandr
+%define schemas apps_gnome_settings_daemon_keybindings apps_gnome_settings_daemon_housekeeping desktop_gnome_font_rendering desktop_gnome_keybindings desktop_gnome_peripherals_smartcard desktop_gnome_peripherals_touchpad gnome-settings-daemon apps_gnome_settings_daemon_xrandr
 %post_install_gconf_schemas %schemas
 %update_icon_cache hicolor
 
@@ -92,14 +92,17 @@ fi
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_xrandr.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_keybindings.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_smartcard.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_touchpad.schemas
 %{_sysconfdir}/gconf/schemas/gnome-settings-daemon.schemas
+%_sysconfdir/dbus-1/system.d/org.gnome.SettingsDaemon.DateTimeMechanism.conf
 %_datadir/gnome-control-center/keybindings/50-accessibility.xml
 %_datadir/%name
 %_datadir/icons/hicolor/*/actions/*
 %_datadir/icons/hicolor/*/apps/*
 %{_libexecdir}/%name
 %{_libexecdir}/gsd-locate-pointer
+%{_libexecdir}/gsd-datetime-mechanism
 %dir %{_libdir}/%name-2.0
 %{_libdir}/%name-2.0/*.so
 %{_libdir}/%name-2.0/a11y-keyboard.gnome-settings-plugin
@@ -111,12 +114,15 @@ fi
 %{_libdir}/%name-2.0/keyboard.gnome-settings-plugin
 %{_libdir}/%name-2.0/media-keys.gnome-settings-plugin
 %{_libdir}/%name-2.0/mouse.gnome-settings-plugin
+%{_libdir}/%name-2.0/smartcard.gnome-settings-plugin
 %{_libdir}/%name-2.0/sound.gnome-settings-plugin
 %{_libdir}/%name-2.0/typing-break.gnome-settings-plugin
 %{_libdir}/%name-2.0/xrandr.gnome-settings-plugin
 %{_libdir}/%name-2.0/xrdb.gnome-settings-plugin
 %{_libdir}/%name-2.0/xsettings.gnome-settings-plugin
 %_datadir/dbus-1/services/*
+%_datadir/dbus-1/system-services/*
+%_datadir/polkit-1/actions/org.gnome.settingsdaemon.datetimemechanism.policy
 
 %files devel
 %defattr(-, root, root)
