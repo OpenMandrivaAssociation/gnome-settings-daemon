@@ -16,7 +16,7 @@ BuildRequires:	libnotify-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	intltool
 BuildRequires:  pulseaudio-devel
-BuildRequires:  libcanberra-devel
+BuildRequires:  libcanberra-gtk-devel
 BuildRequires:  polkit-1-devel
 BuildRequires:  libnss-devel
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
