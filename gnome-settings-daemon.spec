@@ -1,7 +1,7 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
 Version: 2.32.1
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 BuildRequires:	gtk+2-devel
@@ -20,6 +20,7 @@ BuildRequires:  libcanberra-gtk-devel
 BuildRequires:  polkit-1-devel
 BuildRequires:  libnss-devel
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+Patch0: gnome-settings-daemon-2.32.1-libnotify0.7.patch
 # (fc) 2.23.6-2mdv don't use X server dpi by default, use 96 instead, should work better with very small screens
 Patch3:		gnome-settings-daemon-2.23.6-dpi.patch
 # (cg) 2.26.0-2mdv Fedora patches for touchpad support
@@ -47,18 +48,20 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q 
+%patch0 -p1 -b .libnotify
 %patch3 -p1 -b .dpi
 %patch4 -p1 -b .touchpad-fix
 %patch6 -p1 -b .touchpad-edgescroll
 
 %build
-%configure2_5x
+%configure2_5x --disable-schemas-install
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall xmldir=%buildroot%_datadir/gnome-control-center/keybindings
+%makeinstall_std
+ xmldir=%buildroot%_datadir/gnome-control-center/keybindings
 
 %{find_lang} %name-2.0 --with-gnome --all-name
 
