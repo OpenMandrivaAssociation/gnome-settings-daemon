@@ -58,7 +58,7 @@ Include files for the GNOME settings daemon
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std
  xmldir=%buildroot%_datadir/gnome-control-center/keybindings
@@ -68,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -f %buildroot%_libdir/%name-2.0/*a
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %pre
 if [ -d %{_libexecdir}/%name ]
