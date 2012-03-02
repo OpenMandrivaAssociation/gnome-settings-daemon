@@ -10,6 +10,7 @@ BuildRequires:	pkgconfig(colord) >= 0.1.12
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1) >= 0.74
 BuildRequires:	pkgconfig(fontconfig)
+BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.29.14
