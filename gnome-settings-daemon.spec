@@ -1,23 +1,23 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 3.2.2
+Version: 3.4.1
 Release: 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+
+BuildRequires:	intltool
+BuildRequires:	ldetect-lst
+BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(colord) >= 0.1.12
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1) >= 0.74
 BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:	pkgconfig(gconf-2.0)
-BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
-BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.29.14
-BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 3.1.5
 BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.2.0
-BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(kbproto)
@@ -28,7 +28,7 @@ BuildRequires:	pkgconfig(libgnomekbdui) >= 2.91.1
 BuildRequires:	pkgconfig(libnotify) >= 0.7.3,
 BuildRequires:	pkgconfig(libpulse) >= 0.9.16
 BuildRequires:	pkgconfig(libpulse-mainloop-glib) >= 0.9.16
-#BuildRequires:	pkgconfig(libwacom)
+BuildRequires:	pkgconfig(libwacom)
 BuildRequires:	pkgconfig(libxklavier) >= 5.0
 BuildRequires:	pkgconfig(nss) >= 3.11.2,
 BuildRequires:	pkgconfig(packagekit-glib2) >= 0.6.12
@@ -38,9 +38,6 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xorg-wacom)
-BuildRequires:	cups-devel
-BuildRequires:	intltool
-BuildRequires:	ldetect-lst
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
@@ -73,7 +70,6 @@ autoreconf -fi
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std xmldir=%{buildroot}%{_datadir}/gnome-control-center/keybindings
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
