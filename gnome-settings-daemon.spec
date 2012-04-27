@@ -138,6 +138,7 @@ fi
 #%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.updates.gschema.xml
 
 %{_libdir}/gnome-settings-daemon-3.0/wacom.gnome-settings-plugin
+%{_libdir}/gnome-settings-daemon-3.0/libgsdwacom.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.wacom.gschema.xml
 
@@ -159,6 +160,8 @@ fi
 %{_libdir}/gnome-settings-daemon-3.0/cursor.gnome-settings-plugin
 %{_libdir}/gnome-settings-daemon-3.0/libcursor.so
 
+%{_libdir}/gnome-settings-daemon-3.0/libgsd.so
+
 %{_libdir}/gnome-settings-daemon-3.0/orientation.gnome-settings-plugin
 %{_libdir}/gnome-settings-daemon-3.0/liborientation.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.orientation.gschema.xml
@@ -168,6 +171,7 @@ fi
 %{_libexecdir}/gsd-backlight-helper
 %{_libexecdir}/gsd-locate-pointer
 %{_libexecdir}/gsd-printer
+%{_libexecdir}/gsd-wacom-led-helper
 
 %{_datadir}/gnome-settings-daemon/
 %{_datadir}/dbus-1/services/org.gnome.SettingsDaemon.service
@@ -179,6 +183,7 @@ fi
 %{_datadir}/icons/hicolor/*/apps/gsd-xrandr.*
 
 %{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.power.policy
+%{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.wacom.policy
 
 %{_datadir}/GConf/gsettings/gnome-settings-daemon.convert
 
