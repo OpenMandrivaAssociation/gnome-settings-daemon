@@ -10,7 +10,7 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	ldetect-lst
 BuildRequires:	cups-devel
-BuildRequires:	pkgconfig(colord) >= 0.1.12
+BuildRequires:	pkgconfig(colord)
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1) >= 0.74
 BuildRequires:	pkgconfig(fontconfig)
@@ -137,11 +137,7 @@ fi
 #%{_libdir}/gnome-settings-daemon-3.0/libupdates.so
 #%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.updates.gschema.xml
 
-%{_libdir}/gnome-settings-daemon-3.0/keybindings.gnome-settings-plugin
-%{_libdir}/gnome-settings-daemon-3.0/libkeybindings.so
-
 %{_libdir}/gnome-settings-daemon-3.0/wacom.gnome-settings-plugin
-%{_libdir}/gnome-settings-daemon-3.0/libwacom.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.wacom.gschema.xml
 
@@ -170,14 +166,11 @@ fi
 %{_libexecdir}/gnome-fallback-mount-helper
 %{_libexecdir}/gnome-settings-daemon
 %{_libexecdir}/gsd-backlight-helper
-%{_libexecdir}/gsd-datetime-mechanism
 %{_libexecdir}/gsd-locate-pointer
 %{_libexecdir}/gsd-printer
 
-%{_sysconfdir}/dbus-1/system.d/org.gnome.SettingsDaemon.DateTimeMechanism.conf
 %{_datadir}/gnome-settings-daemon/
 %{_datadir}/dbus-1/services/org.gnome.SettingsDaemon.service
-%{_datadir}/dbus-1/system-services/org.gnome.SettingsDaemon.DateTimeMechanism.service
 %{_datadir}/dbus-1/interfaces/org.gnome.SettingsDaemonUpdates.xml
 
 %{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
@@ -186,7 +179,6 @@ fi
 %{_datadir}/icons/hicolor/*/apps/gsd-xrandr.*
 
 %{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.power.policy
-%{_datadir}/polkit-1/actions/org.gnome.settingsdaemon.datetimemechanism.policy
 
 %{_datadir}/GConf/gsettings/gnome-settings-daemon.convert
 
