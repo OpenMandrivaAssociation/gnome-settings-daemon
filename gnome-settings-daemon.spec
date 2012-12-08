@@ -1,13 +1,13 @@
 Summary: GNOME Settings Daemon
 Name: gnome-settings-daemon
-Version: 3.4.2
+Version: 3.6.3
 Release: 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://www.gnome.org/
-Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
 
-BuildRequires:	intltool
+BuildRequires:	intltool, xsltproc
 BuildRequires:	ldetect-lst
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(colord)
@@ -37,7 +37,9 @@ BuildRequires:	pkgconfig(upower-glib) >= 0.9.1
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
+BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(xorg-wacom)
+BuildRequires:	docbook-style-xsl
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
@@ -172,9 +174,25 @@ fi
 %{_libexecdir}/gsd-locate-pointer
 %{_libexecdir}/gsd-printer
 %{_libexecdir}/gsd-wacom-led-helper
+%{_libexecdir}/gsd-input-sources-switcher
+%{_libexecdir}/gsd-list-wacom
+%{_libexecdir}/gsd-test-a11y-keyboard
+%{_libexecdir}/gsd-test-a11y-settings
+%{_libexecdir}/gsd-test-background
+%{_libexecdir}/gsd-test-input-helper
+%{_libexecdir}/gsd-test-keyboard
+%{_libexecdir}/gsd-test-media-keys
+%{_libexecdir}/gsd-test-mouse
+%{_libexecdir}/gsd-test-orientation
+%{_libexecdir}/gsd-test-power
+%{_libexecdir}/gsd-test-print-notifications
+%{_libexecdir}/gsd-test-smartcard
+%{_libexecdir}/gsd-test-sound
+%{_libexecdir}/gsd-test-wacom
+%{_libexecdir}/gsd-test-xsettings
 
 %{_datadir}/gnome-settings-daemon/
-%{_datadir}/dbus-1/services/org.gnome.SettingsDaemon.service
+%{_datadir}/dbus-1/services/org.freedesktop.IBus.service
 %{_datadir}/dbus-1/interfaces/org.gnome.SettingsDaemonUpdates.xml
 
 %{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
