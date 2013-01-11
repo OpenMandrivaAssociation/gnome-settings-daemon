@@ -1,14 +1,18 @@
-Summary: GNOME Settings Daemon
-Name: gnome-settings-daemon
-Version: 3.6.3
-Release: 1
-License: GPLv2+
-Group: Graphical desktop/GNOME
-URL: http://www.gnome.org/
-Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
+%define url_ver %(echo %{version}|cut -d. -f1,2)
 
-BuildRequires:	intltool, xsltproc
+Summary:	GNOME Settings Daemon
+Name:		gnome-settings-daemon
+Version:	3.6.4
+Release:	1
+License:	GPLv2+
+Group:		Graphical desktop/GNOME
+URL:		http://www.gnome.org/
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+
+BuildRequires:	docbook-style-xsl
+BuildRequires:	intltool
 BuildRequires:	ldetect-lst
+BuildRequires:	xsltproc
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(colord)
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
@@ -39,7 +43,6 @@ BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(xorg-wacom)
-BuildRequires:	docbook-style-xsl
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
@@ -215,3 +218,4 @@ fi
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
 %dir %{_datadir}/gnome-settings-daemon-3.0
 %{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
+
