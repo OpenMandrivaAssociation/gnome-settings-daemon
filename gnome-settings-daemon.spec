@@ -170,6 +170,10 @@ fi
 
 %{_libdir}/gnome-settings-daemon-3.0/orientation.gnome-settings-plugin
 %{_libdir}/gnome-settings-daemon-3.0/liborientation.so
+
+%{_libdir}/gnome-settings-daemon-3.0/screensaver-proxy.gnome-settings-plugin
+%{_libdir}/gnome-settings-daemon-3.0/libscreensaver-proxy.so
+
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.orientation.gschema.xml
 
 %{_libexecdir}/gnome-fallback-mount-helper
@@ -190,6 +194,7 @@ fi
 %{_libexecdir}/gsd-test-orientation
 %{_libexecdir}/gsd-test-power
 %{_libexecdir}/gsd-test-print-notifications
+%{_libexecdir}/gsd-test-screensaver-proxy
 %{_libexecdir}/gsd-test-smartcard
 %{_libexecdir}/gsd-test-sound
 %{_libexecdir}/gsd-test-wacom
