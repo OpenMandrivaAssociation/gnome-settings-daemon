@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 3.1.5
 BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.2.0
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
 BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(kbproto)
 BuildRequires:	pkgconfig(lcms2) >= 2.2
 BuildRequires:	pkgconfig(libcanberra-gtk3)
@@ -41,8 +42,8 @@ BuildRequires:	pkgconfig(upower-glib) >= 0.9.1
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
-BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(xorg-wacom)
+BuildRequires:	pkgconfig(xtst)
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
