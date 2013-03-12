@@ -1,18 +1,21 @@
-%define url_ver %(echo %{version}|cut -d. -f1,2)
+Summary: GNOME Settings Daemon
+Name: gnome-settings-daemon
+Version: 3.6.4
+Release: 4
+License: GPLv2+
+Group: Graphical desktop/GNOME
+URL: http://www.gnome.org/
+Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
 
-Summary:	GNOME Settings Daemon
-Name:		gnome-settings-daemon
-Version:	3.6.4
-Release:	1
-License:	GPLv2+
-Group:		Graphical desktop/GNOME
-URL:		http://www.gnome.org/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0: gnome-settings-daemon-XI-RawEvents.patch
+# https://bugzilla.gnome.org/show_bug.cgi?id=680689
+Patch2: 0001-power-and-media-keys-Use-logind-for-suspending-and-r.patch
+# Wacom OSD window
+# https://bugzilla.gnome.org/show_bug.cgi?id=679062
+Patch3: 0001-wacom-implement-OSD-help-window.patch
 
-BuildRequires:	docbook-style-xsl
-BuildRequires:	intltool
+BuildRequires:	intltool, xsltproc
 BuildRequires:	ldetect-lst
-BuildRequires:	xsltproc
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(colord)
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
@@ -24,7 +27,6 @@ BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 3.1.5
 BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.2.0
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
 BuildRequires:	pkgconfig(gudev-1.0)
-BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(kbproto)
 BuildRequires:	pkgconfig(lcms2) >= 2.2
 BuildRequires:	pkgconfig(libcanberra-gtk3)
@@ -42,8 +44,11 @@ BuildRequires:	pkgconfig(upower-glib) >= 0.9.1
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
+BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(xorg-wacom)
-BuildRequires:	pkgconfig(xtst)
+BuildRequires:	docbook-style-xsl
+BuildRequires:	gnome-common
+BuildRequires:	pkgconfig(libsystemd-login)
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
@@ -65,12 +70,13 @@ sed -i 's/hwdata/misc/g' \
 	acinclude.m4 \
 	configure
 
-autoreconf -fi
+#autoreconf -fi
 
 %build
 %configure2_5x \
 	--disable-static \
 	--enable-packagekit \
+	--enable-systemd \
 	--enable-profiling
 
 %make
@@ -170,11 +176,10 @@ fi
 
 %{_libdir}/gnome-settings-daemon-3.0/orientation.gnome-settings-plugin
 %{_libdir}/gnome-settings-daemon-3.0/liborientation.so
-
-%{_libdir}/gnome-settings-daemon-3.0/screensaver-proxy.gnome-settings-plugin
-%{_libdir}/gnome-settings-daemon-3.0/libscreensaver-proxy.so
-
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.orientation.gschema.xml
+
+%{_libdir}/gnome-settings-daemon-3.0/libscreensaver-proxy.so
+%{_libdir}/gnome-settings-daemon-3.0/screensaver-proxy.gnome-settings-plugin
 
 %{_libexecdir}/gnome-fallback-mount-helper
 %{_libexecdir}/gnome-settings-daemon
@@ -184,6 +189,7 @@ fi
 %{_libexecdir}/gsd-wacom-led-helper
 %{_libexecdir}/gsd-input-sources-switcher
 %{_libexecdir}/gsd-list-wacom
+%{_libexecdir}/gsd-test-wacom
 %{_libexecdir}/gsd-test-a11y-keyboard
 %{_libexecdir}/gsd-test-a11y-settings
 %{_libexecdir}/gsd-test-background
@@ -194,11 +200,11 @@ fi
 %{_libexecdir}/gsd-test-orientation
 %{_libexecdir}/gsd-test-power
 %{_libexecdir}/gsd-test-print-notifications
-%{_libexecdir}/gsd-test-screensaver-proxy
 %{_libexecdir}/gsd-test-smartcard
 %{_libexecdir}/gsd-test-sound
-%{_libexecdir}/gsd-test-wacom
+%{_libexecdir}/gsd-test-wacom-osd
 %{_libexecdir}/gsd-test-xsettings
+%{_libexecdir}/gsd-test-screensaver-proxy
 
 %{_datadir}/gnome-settings-daemon/
 %{_datadir}/dbus-1/services/org.freedesktop.IBus.service
@@ -224,4 +230,3 @@ fi
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
 %dir %{_datadir}/gnome-settings-daemon-3.0
 %{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
-
