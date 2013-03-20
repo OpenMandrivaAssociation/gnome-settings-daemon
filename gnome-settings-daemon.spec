@@ -46,6 +46,7 @@ BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(xorg-wacom)
+BuildRequires:  pkgconfig(xtst)
 BuildRequires:	docbook-style-xsl
 BuildRequires:	gnome-common
 BuildRequires:	pkgconfig(libsystemd-login)
