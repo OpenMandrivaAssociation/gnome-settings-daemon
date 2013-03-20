@@ -71,7 +71,7 @@ sed -i 's/hwdata/misc/g' \
 	acinclude.m4 \
 	configure
 
-#autoreconf -fi
+autoreconf -fi
 
 %build
 %configure2_5x \
