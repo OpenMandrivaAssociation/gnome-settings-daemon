@@ -1,20 +1,24 @@
-Summary: GNOME Settings Daemon
-Name: gnome-settings-daemon
-Version: 3.6.4
-Release: 6
-License: GPLv2+
-Group: Graphical desktop/GNOME
-URL: http://www.gnome.org/
-Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
+%define url_ver %(echo %{version}|cut -d. -f1,2)
 
-Patch0: gnome-settings-daemon-XI-RawEvents.patch
+Summary:	GNOME Settings Daemon
+Name:		gnome-settings-daemon
+Version:	3.6.4
+Release:	6
+License:	GPLv2+
+Group:		Graphical desktop/GNOME
+Url:		http://www.gnome.org/
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-settings-daemon/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:	gnome-settings-daemon-XI-RawEvents.patch
 # https://bugzilla.gnome.org/show_bug.cgi?id=680689
-Patch2: 0001-power-and-media-keys-Use-logind-for-suspending-and-r.patch
+Patch2:	0001-power-and-media-keys-Use-logind-for-suspending-and-r.patch
 # Wacom OSD window
 # https://bugzilla.gnome.org/show_bug.cgi?id=679062
-Patch3: 0001-wacom-implement-OSD-help-window.patch
+Patch3:	0001-wacom-implement-OSD-help-window.patch
 
-BuildRequires:	intltool, xsltproc
+BuildRequires:	docbook-style-xsl
+BuildRequires:	gnome-common
+BuildRequires:	intltool
+BuildRequires:	xsltproc
 BuildRequires:	ldetect-lst
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(colord)
@@ -27,6 +31,7 @@ BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 3.1.5
 BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.2.0
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
 BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(kbproto)
 BuildRequires:	pkgconfig(lcms2) >= 2.2
 BuildRequires:	pkgconfig(libcanberra-gtk3)
@@ -35,6 +40,7 @@ BuildRequires:	pkgconfig(libgnomekbdui) >= 2.91.1
 BuildRequires:	pkgconfig(libnotify) >= 0.7.3,
 BuildRequires:	pkgconfig(libpulse) >= 0.9.16
 BuildRequires:	pkgconfig(libpulse-mainloop-glib) >= 0.9.16
+BuildRequires:	pkgconfig(libsystemd-login)
 BuildRequires:	pkgconfig(libwacom)
 BuildRequires:	pkgconfig(libxklavier) >= 5.0
 BuildRequires:	pkgconfig(nss) >= 3.11.2,
@@ -44,12 +50,8 @@ BuildRequires:	pkgconfig(upower-glib) >= 0.9.1
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
-BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(xorg-wacom)
-BuildRequires:  pkgconfig(xtst)
-BuildRequires:	docbook-style-xsl
-BuildRequires:	gnome-common
-BuildRequires:	pkgconfig(libsystemd-login)
+BuildRequires:	pkgconfig(xtst)
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
@@ -84,9 +86,7 @@ autoreconf -fi
 
 %install
 %makeinstall_std xmldir=%{buildroot}%{_datadir}/gnome-control-center/keybindings
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
-
-%{find_lang} %{name} --with-gnome --all-name
+%find_lang %{name} --with-gnome --all-name
 
 %pre
 if [ -d %{_libexecdir}/%{name} ]
@@ -231,3 +231,4 @@ fi
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
 %dir %{_datadir}/gnome-settings-daemon-3.0
 %{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
+
