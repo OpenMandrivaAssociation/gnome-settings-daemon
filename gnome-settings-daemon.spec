@@ -3,7 +3,7 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	3.8.3
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -58,7 +58,7 @@ Conflicts:	gnome-control-center < 2.21.90
 Conflicts:	gnome-color-manager < 3.1.2-1
 Conflicts:	gnome-power-manager < 3.1.90
 # ovitters: GNOME 3.8+ does not support fallback mode (gnome-panel, etc)
-Conflicts:	gnome-panel <= 3.7.0-0.20130524.1
+Conflicts:	gnome-panel <= 3.7.0
 
 # For the media-keys 'plugin'.
 # It handles extra keyboard buttons (Calculator, screenshot, shutdown, etc) as
