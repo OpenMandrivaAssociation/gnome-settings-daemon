@@ -2,8 +2,8 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.8.3
-Release:	11
+Version:	3.14.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -93,16 +93,6 @@ Conflicts:	libgnome-window-settings-devel < 2.21.5
 %description devel
 Include files for the GNOME settings daemon
 
-%package updates
-Summary:	Plugin for the GNOME settings daemon to install updates
-Group:		Graphical desktop/GNOME
-Requires:	%{name} = %{version}-%{release}
-
-%description updates
-This package includes a plugin for gnome to install system updates. It
-uses packagekit as backend and can be used to replace rpmdrake/mdkonline
-which are the default for this functionality.
-
 %prep
 %setup -q
 %apply_patches
@@ -115,7 +105,7 @@ sed -i 's/hwdata/misc/g' \
 autoreconf -fi
 
 %build
-%configure2_5x \
+%configure \
 	--enable-packagekit \
 	--enable-profiling \
 	--disable-static
@@ -136,8 +126,6 @@ fi
 
 %files -f %{name}.lang
 %doc AUTHORS COPYING NEWS
-%dir %{_sysconfdir}/gnome-settings-daemon
-%dir %{_sysconfdir}/gnome-settings-daemon/xrandr
 %dir %{_libdir}/gnome-settings-daemon-3.0
 
 # list plugins explicitly, so we notice if one goes missing
@@ -151,6 +139,10 @@ fi
 
 %{_libdir}/gnome-settings-daemon-3.0/clipboard.gnome-settings-plugin
 %{_libdir}/gnome-settings-daemon-3.0/libclipboard.so
+
+%{_libdir}/gnome-settings-daemon-3.0/datetime.gnome-settings-plugin
+%{_libdir}/gnome-settings-daemon-3.0/libdatetime.so
+%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.datetime.gschema.xml
 
 %{_libdir}/gnome-settings-daemon-3.0/housekeeping.gnome-settings-plugin
 %{_libdir}/gnome-settings-daemon-3.0/libhousekeeping.so
@@ -183,6 +175,10 @@ fi
 %{_libdir}/gnome-settings-daemon-3.0/libxrandr.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.xrandr.gschema.xml
 
+%{_libdir}/gnome-settings-daemon-3.0/sharing.gnome-settings-plugin
+%{_libdir}/gnome-settings-daemon-3.0/libsharing.so
+%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.sharing.gschema.xml
+
 %{_libdir}/gnome-settings-daemon-3.0/xsettings.gnome-settings-plugin
 %{_libdir}/gnome-settings-daemon-3.0/libxsettings.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.xsettings.gschema.xml
@@ -206,19 +202,25 @@ fi
 %{_libdir}/gnome-settings-daemon-3.0/libscreensaver-proxy.so
 %{_libdir}/gnome-settings-daemon-3.0/screensaver-proxy.gnome-settings-plugin
 
-%{_libdir}/gnome-settings-daemon-3.0/libremote-display.so
-%{_libdir}/gnome-settings-daemon-3.0/remote-display.gnome-settings-plugin
+%{_libdir}/gnome-settings-daemon-3.0/librfkill.so
+%{_libdir}/gnome-settings-daemon-3.0/rfkill.gnome-settings-plugin
+
+%{_libdir}/gnome-settings-daemon-3.0/libsmartcard.so
+%{_libdir}/gnome-settings-daemon-3.0/smartcard.gnome-settings-plugin
 
 %{_libexecdir}/gnome-settings-daemon
+%{_libexecdir}/gnome-settings-daemon-localeexec
 %{_libexecdir}/gsd-backlight-helper
 %{_libexecdir}/gsd-locate-pointer
 %{_libexecdir}/gsd-printer
 %{_libexecdir}/gsd-wacom-led-helper
+%{_libexecdir}/gsd-wacom-oled-helper
 %{_libexecdir}/gsd-list-wacom
 %{_libexecdir}/gsd-test-wacom
 %{_libexecdir}/gsd-test-a11y-keyboard
 %{_libexecdir}/gsd-test-a11y-settings
 %{_libexecdir}/gsd-test-cursor
+%{_libexecdir}/gsd-test-datetime
 %{_libexecdir}/gsd-test-housekeeping
 %{_libexecdir}/gsd-test-input-helper
 %{_libexecdir}/gsd-test-keyboard
@@ -226,15 +228,18 @@ fi
 %{_libexecdir}/gsd-test-mouse
 %{_libexecdir}/gsd-test-orientation
 %{_libexecdir}/gsd-test-print-notifications
-%{_libexecdir}/gsd-test-remote-display
 %{_libexecdir}/gsd-test-screensaver-proxy
 %{_libexecdir}/gsd-test-sound
 %{_libexecdir}/gsd-test-wacom-osd
 %{_libexecdir}/gsd-test-xrandr
 %{_libexecdir}/gsd-test-xsettings
+%{_libexecdir}/gsd-test-rfkill
+%{_libexecdir}/gsd-test-smartcard
 
 %{_datadir}/gnome-settings-daemon/
-%{_datadir}/dbus-1/services/org.freedesktop.IBus.service
+#%{_datadir}/dbus-1/services/org.freedesktop.IBus.service
+
+/usr/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
 
 %{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
 
@@ -255,9 +260,4 @@ fi
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
 %dir %{_datadir}/gnome-settings-daemon-3.0
 %{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
-
-%files updates
-%{_libdir}/gnome-settings-daemon-3.0/updates.gnome-settings-plugin
-%{_libdir}/gnome-settings-daemon-3.0/libupdates.so
-%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.updates.gschema.xml
 
