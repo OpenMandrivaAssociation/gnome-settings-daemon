@@ -36,7 +36,6 @@ BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libwacom)
 BuildRequires:	pkgconfig(libxklavier) >= 5.0
 BuildRequires:	pkgconfig(nss) >= 3.11.2,
-BuildRequires:	pkgconfig(packagekit-glib2) >= 0.6.12
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.97
 BuildRequires:	pkgconfig(libsystemd-login)
 BuildRequires:	pkgconfig(upower-glib) >= 0.9.1
@@ -106,7 +105,6 @@ autoreconf -fi
 
 %build
 %configure \
-	--enable-packagekit \
 	--enable-profiling \
 	--disable-static
     
