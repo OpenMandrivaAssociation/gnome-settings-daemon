@@ -14,6 +14,8 @@ BuildRequires:	pkgconfig(colord) >= 0.1.12
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1) >= 0.74
 BuildRequires:	pkgconfig(fontconfig)
+BuildRequires:	pkgconfig(geoclue-2.0) >= 2.1.2
+BuildRequires:	pkgconfig(geocode-glib-1.0) >= 3.10.0
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.29.14
@@ -23,6 +25,7 @@ BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.3.0
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
 BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires:	pkgconfig(gweather-3.0) >= 3.9.5
 BuildRequires:	pkgconfig(ibus-1.0) >= 1.4.99.2012100
 BuildRequires:	pkgconfig(kbproto)
 BuildRequires:	pkgconfig(lcms2) >= 2.2
@@ -36,7 +39,7 @@ BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libwacom)
 BuildRequires:	pkgconfig(libxklavier) >= 5.0
 BuildRequires:	pkgconfig(nss) >= 3.11.2,
-BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.97
+BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.103
 BuildRequires:	pkgconfig(libsystemd-login)
 BuildRequires:	pkgconfig(upower-glib) >= 0.9.1
 BuildRequires:	pkgconfig(x11)
