@@ -32,7 +32,9 @@ BuildRequires:	pkgconfig(lcms2) >= 2.2
 BuildRequires:	pkgconfig(libcanberra-gtk3)
 BuildRequires:	pkgconfig(libgnomekbd) >= 2.91.1
 BuildRequires:	pkgconfig(libgnomekbdui) >= 2.91.1
-BuildRequires:	pkgconfig(libnotify) >= 0.7.3,
+BuildRequires:	pkgconfig(libnm-glib) >= 0.9.9.1
+BuildRequires:	pkgconfig(libnm-util) >= 0.9.9.1
+BuildRequires:	pkgconfig(libnotify) >= 0.7.3
 BuildRequires:	pkgconfig(libpulse) >= 0.9.16
 BuildRequires:	pkgconfig(libpulse-mainloop-glib) >= 0.9.16
 BuildRequires:	pkgconfig(librsvg-2.0)
