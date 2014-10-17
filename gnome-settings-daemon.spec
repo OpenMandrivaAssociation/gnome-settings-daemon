@@ -3,7 +3,7 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	3.14.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -57,7 +57,6 @@ BuildRequires:	xsltproc
 BuildRequires:	docbook-style-xsl
 BuildRequires:	gettext-devel
 Requires:	system-config-printer-udev
-Requires:	libgnome2-schemas
 
 Conflicts:	gnome-control-center < 2.21.90
 Conflicts:	gnome-color-manager < 3.1.2-1
