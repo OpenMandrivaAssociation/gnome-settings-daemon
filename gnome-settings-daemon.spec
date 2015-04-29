@@ -193,9 +193,6 @@ fi
 %{_libdir}/gnome-settings-daemon-3.0/libcolor.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.color.gschema.xml
 
-%{_libdir}/gnome-settings-daemon-3.0/cursor.gnome-settings-plugin
-%{_libdir}/gnome-settings-daemon-3.0/libcursor.so
-
 %{_libdir}/gnome-settings-daemon-3.0/libgsd.so
 
 %{_libdir}/gnome-settings-daemon-3.0/orientation.gnome-settings-plugin
@@ -222,7 +219,6 @@ fi
 %{_libexecdir}/gsd-test-wacom
 %{_libexecdir}/gsd-test-a11y-keyboard
 %{_libexecdir}/gsd-test-a11y-settings
-%{_libexecdir}/gsd-test-cursor
 %{_libexecdir}/gsd-test-datetime
 %{_libexecdir}/gsd-test-housekeeping
 %{_libexecdir}/gsd-test-input-helper
