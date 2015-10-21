@@ -2,7 +2,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.16.1
+Version:	3.18.1
 Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -112,7 +112,7 @@ autoreconf -fi
 %configure \
 	--enable-profiling \
 	--disable-static
-    
+
 %make
 
 %install
@@ -124,7 +124,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %pre
 if [ -d %{_libexecdir}/%{name} ]
-  then rm -rf %{_libexecdir}/%{name} 
+  then rm -rf %{_libexecdir}/%{name}
 fi
 
 %files -f %{name}.lang
