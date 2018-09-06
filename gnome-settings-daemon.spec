@@ -60,6 +60,7 @@ BuildRequires:	xsltproc
 BuildRequires:	docbook-style-xsl
 BuildRequires:	gettext-devel
 BuildRequires:	meson
+BuildRequires:  pkgconfig(krb5)
 Requires:	system-config-printer-udev
 
 Conflicts:	gnome-control-center < 2.21.90
