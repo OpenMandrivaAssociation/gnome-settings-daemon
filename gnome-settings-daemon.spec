@@ -45,6 +45,7 @@ BuildRequires:	pkgconfig(libxklavier) >= 5.0
 BuildRequires:	pkgconfig(nss) >= 3.11.2,
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.103
 BuildRequires:	pkgconfig(systemd)
+BuildRequires:  pkgconfig(udev)
 BuildRequires:	pkgconfig(upower-glib) >= 0.9.1
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xfixes)
