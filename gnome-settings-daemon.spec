@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(lcms2) >= 2.2
 BuildRequires:	pkgconfig(libcanberra-gtk3)
 BuildRequires:	pkgconfig(libgnomekbd) >= 2.91.1
 BuildRequires:	pkgconfig(libgnomekbdui) >= 2.91.1
+BuildRequires:	pkgconfig(libnm)
 BuildRequires:	pkgconfig(libnm-glib) >= 0.9.9.1
 BuildRequires:	pkgconfig(libnm-glib-vpn)
 BuildRequires:	pkgconfig(libnm-util) >= 0.9.9.1
