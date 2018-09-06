@@ -6,5 +6,6 @@ removed_sources:
   gnome-settings-daemon-3.6.4.tar.xz: 6ab132afbefc7b3335ef5dc34e07da0766c88339
   gnome-settings-daemon-3.7.4.tar.xz: 567ed107661b3431c06d571c1a8a67f4497a85ed
   gnome-settings-daemon-3.8.3.tar.xz: 86b4392f37738349035ab5c5a0c8a2c793006b65
-sources:
   gnome-settings-daemon-3.18.1.tar.xz: 501464555b602e012460a14d0d98a566516cbd2b
+sources:
+  gnome-settings-daemon-3.28.1.tar.xz: a9799a2a036b87e13fe814351e392987c6f95dd2
