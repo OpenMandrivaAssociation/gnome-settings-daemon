@@ -3,7 +3,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.18.1
+Version:	3.28.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -57,6 +57,7 @@ BuildRequires:	ldetect-lst
 BuildRequires:	xsltproc
 BuildRequires:	docbook-style-xsl
 BuildRequires:	gettext-devel
+BuildRequires:	meson
 Requires:	system-config-printer-udev
 
 Conflicts:	gnome-control-center < 2.21.90
@@ -102,22 +103,13 @@ Include files for the GNOME settings daemon
 %setup -q
 %apply_patches
 
-# looking /usr/share/misc/pnp.ids
-sed -i 's/hwdata/misc/g' \
-	acinclude.m4 \
-	configure
-
-autoreconf -fi
-
 %build
-%configure \
-	--enable-profiling \
-	--disable-static
-
-%make
+%meson
+%meson_build
 
 %install
-%makeinstall_std xmldir=%{buildroot}%{_datadir}/gnome-control-center/keybindings
+%meson_install
+
 #we don't want these
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
