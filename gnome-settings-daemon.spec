@@ -61,7 +61,7 @@ BuildRequires:	docbook-style-xsl
 BuildRequires:	gettext-devel
 BuildRequires:	meson
 BuildRequires:  pkgconfig(krb5)
-BuildRequires:  kmflcomp-devel
+BuildRequires:  pkgconfig(com_err)
 Requires:	system-config-printer-udev
 
 Conflicts:	gnome-control-center < 2.21.90
