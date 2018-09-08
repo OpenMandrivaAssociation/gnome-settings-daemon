@@ -205,6 +205,63 @@ fi
 #{_libdir}/gnome-settings-daemon-3.0/libsmartcard.so
 #{_libdir}/gnome-settings-daemon-3.0/smartcard.gnome-settings-plugin
 
+------------------------------------------------------------------------
+
+%{_libexecdir}/gsd-a11y-settings
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
+
+%{_libexecdir}/gsd-clipboard
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Clipboard.desktop
+
+%{_libexecdir}/gsd-color
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Color.desktop
+
+%{_libexecdir}/gsd-datetime
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Datetime.desktop
+
+%{_libexecdir}/gsd-dummy
+
+%{_libexecdir}/gsd-housekeeping
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Housekeeping.desktop
+
+%{_libexecdir}/gsd-keyboard
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Keyboard.desktop
+
+%{_libexecdir}/gsd-media-keys
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.MediaKeys.desktop
+
+%{_libexecdir}/gsd-mouse
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Mouse.desktop
+
+%{_libexecdir}/gsd-power
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop
+
+%{_libexecdir}/gsd-print-notifications
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.PrintNotifications.desktop
+
+%{_libexecdir}/gsd-rfkill
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Rfkill.desktop
+
+%{_libexecdir}/gsd-screensaver-proxy
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.ScreensaverProxy.desktop
+
+%{_libexecdir}/gsd-sharing
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Sharing.desktop
+
+%{_libexecdir}/gsd-smartcard
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Smartcard.desktop
+
+%{_libexecdir}/gsd-sound
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Sound.desktop
+
+%{_libexecdir}/gsd-wacom
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Wacom.desktop
+
+%{_libexecdir}/gsd-xsettings
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
+
+---------------------------------------------------------------------------
+
 #{_libexecdir}/gnome-settings-daemon
 #{_libexecdir}/gnome-settings-daemon-localeexec
 %{_libexecdir}/gsd-backlight-helper
@@ -235,7 +292,7 @@ fi
 %{_datadir}/gnome-settings-daemon/
 #%{_datadir}/dbus-1/services/org.freedesktop.IBus.service
 
-#/usr/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
+/usr/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
 
 #{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
 
@@ -256,4 +313,6 @@ fi
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
 #dir %{_datadir}/gnome-settings-daemon-3.0
 #{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
+
+%exclude /usr/lib/debug/usr/libexec/gsd*
 
