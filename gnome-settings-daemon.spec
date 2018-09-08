@@ -254,6 +254,6 @@ fi
 %files devel
 %{_includedir}/gnome-settings-daemon-3.0
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
-%dir %{_datadir}/gnome-settings-daemon-3.0
-%{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
+#dir %{_datadir}/gnome-settings-daemon-3.0
+#{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
 
