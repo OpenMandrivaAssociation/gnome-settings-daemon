@@ -292,7 +292,7 @@ fi
 %{_datadir}/gnome-settings-daemon/
 #%{_datadir}/dbus-1/services/org.freedesktop.IBus.service
 
-/usr/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
+#/usr/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
 
 #{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
 
