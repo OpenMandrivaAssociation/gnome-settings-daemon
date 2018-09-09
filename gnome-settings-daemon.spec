@@ -205,7 +205,6 @@ fi
 #{_libdir}/gnome-settings-daemon-3.0/libsmartcard.so
 #{_libdir}/gnome-settings-daemon-3.0/smartcard.gnome-settings-plugin
 
-------------------------------------------------------------------------
 
 %{_libexecdir}/gsd-a11y-settings
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
@@ -260,7 +259,6 @@ fi
 %{_libexecdir}/gsd-xsettings
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
 
----------------------------------------------------------------------------
 
 #{_libexecdir}/gnome-settings-daemon
 #{_libexecdir}/gnome-settings-daemon-localeexec
