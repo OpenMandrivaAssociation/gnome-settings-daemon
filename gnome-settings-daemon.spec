@@ -3,7 +3,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.30.2
+Version:	3.32.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -273,7 +273,7 @@ fi
 #{_libexecdir}/gsd-test-a11y-settings
 #{_libexecdir}/gsd-test-datetime
 #{_libexecdir}/gsd-test-housekeeping
-%{_libexecdir}/gsd-test-input-helper
+#{_libexecdir}/gsd-test-input-helper
 #{_libexecdir}/gsd-test-keyboard
 #{_libexecdir}/gsd-test-media-keys
 #{_libexecdir}/gsd-test-mouse
