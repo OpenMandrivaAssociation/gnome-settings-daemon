@@ -3,7 +3,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.32.0
+Version:	3.32.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -128,83 +128,23 @@ fi
 %doc AUTHORS COPYING NEWS
 %dir %{_libdir}/gnome-settings-daemon-3.0
 
-# list plugins explicitly, so we notice if one goes missing
-# some of these don't have a separate gschema
-#{_libdir}/gnome-settings-daemon-3.0/a11y-keyboard.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/liba11y-keyboard.so
-
-#{_libdir}/gnome-settings-daemon-3.0/power.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libpower.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml
 
-#{_libdir}/gnome-settings-daemon-3.0/clipboard.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libclipboard.so
-
-#{_libdir}/gnome-settings-daemon-3.0/datetime.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libdatetime.so
-#{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.datetime.gschema.xml
-
-#{_libdir}/gnome-settings-daemon-3.0/housekeeping.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libhousekeeping.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.housekeeping.gschema.xml
 
-#{_libdir}/gnome-settings-daemon-3.0/keyboard.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libkeyboard.so
-#{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.keyboard.gschema.xml
-
-#{_libdir}/gnome-settings-daemon-3.0/media-keys.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libmedia-keys.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.media-keys.gschema.xml
 
-#{_libdir}/gnome-settings-daemon-3.0/mouse.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libmouse.so
 
-#{_libdir}/gnome-settings-daemon-3.0/print-notifications.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libprint-notifications.so
-#{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.print-notifications.gschema.xml
-
-#{_libdir}/gnome-settings-daemon-3.0/sound.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libsound.so
-
-#{_libdir}/gnome-settings-daemon-3.0/wacom.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libgsdwacom.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.peripherals.wacom.gschema.xml
 
-#{_libdir}/gnome-settings-daemon-3.0/xrandr.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libxrandr.so
-#{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.xrandr.gschema.xml
-
-#{_libdir}/gnome-settings-daemon-3.0/sharing.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libsharing.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.sharing.gschema.xml
 
-#{_libdir}/gnome-settings-daemon-3.0/xsettings.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libxsettings.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.xsettings.gschema.xml
 
-#{_libdir}/gnome-settings-daemon-3.0/a11y-settings.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/liba11y-settings.so
-
-#{_libdir}/gnome-settings-daemon-3.0/color.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/libcolor.so
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.color.gschema.xml
 
 %{_libdir}/gnome-settings-daemon-3.0/libgsd.so
-
-#{_libdir}/gnome-settings-daemon-3.0/orientation.gnome-settings-plugin
-#{_libdir}/gnome-settings-daemon-3.0/liborientation.so
-#{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.orientation.gschema.xml
-
-#{_libdir}/gnome-settings-daemon-3.0/libscreensaver-proxy.so
-#{_libdir}/gnome-settings-daemon-3.0/screensaver-proxy.gnome-settings-plugin
-
-#{_libdir}/gnome-settings-daemon-3.0/librfkill.so
-#{_libdir}/gnome-settings-daemon-3.0/rfkill.gnome-settings-plugin
-
-#{_libdir}/gnome-settings-daemon-3.0/libsmartcard.so
-#{_libdir}/gnome-settings-daemon-3.0/smartcard.gnome-settings-plugin
-
 
 %{_libexecdir}/gsd-a11y-settings
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
@@ -259,42 +199,15 @@ fi
 %{_libexecdir}/gsd-xsettings
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
 
-
-#{_libexecdir}/gnome-settings-daemon
-#{_libexecdir}/gnome-settings-daemon-localeexec
 %{_libexecdir}/gsd-backlight-helper
 %{_libexecdir}/gsd-locate-pointer
 %{_libexecdir}/gsd-printer
 %{_libexecdir}/gsd-wacom-led-helper
 %{_libexecdir}/gsd-wacom-oled-helper
-#{_libexecdir}/gsd-list-wacom
-#{_libexecdir}/gsd-test-wacom
-#{_libexecdir}/gsd-test-a11y-keyboard
-#{_libexecdir}/gsd-test-a11y-settings
-#{_libexecdir}/gsd-test-datetime
-#{_libexecdir}/gsd-test-housekeeping
-#{_libexecdir}/gsd-test-input-helper
-#{_libexecdir}/gsd-test-keyboard
-#{_libexecdir}/gsd-test-media-keys
-#{_libexecdir}/gsd-test-mouse
-#{_libexecdir}/gsd-test-orientation
-#{_libexecdir}/gsd-test-print-notifications
-#{_libexecdir}/gsd-test-screensaver-proxy
-#{_libexecdir}/gsd-test-sound
-#{_libexecdir}/gsd-test-wacom-osd
-#{_libexecdir}/gsd-test-xrandr
-#{_libexecdir}/gsd-test-xsettings
-#{_libexecdir}/gsd-test-rfkill
-#{_libexecdir}/gsd-test-smartcard
 
 %{_datadir}/gnome-settings-daemon/
-#%{_datadir}/dbus-1/services/org.freedesktop.IBus.service
 
 /lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
-
-#{_sysconfdir}/xdg/autostart/gnome-settings-daemon.desktop
-
-#{_datadir}/icons/hicolor/*/apps/gsd-xrandr.*
 
 %{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.power.policy
 %{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.wacom.policy
@@ -304,13 +217,6 @@ fi
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.gschema.xml
 
-#{_datadir}/man/man1/gnome-settings-daemon.1.*
-
 %files devel
 %{_includedir}/gnome-settings-daemon-3.0
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
-#dir %{_datadir}/gnome-settings-daemon-3.0
-#{_datadir}/gnome-settings-daemon-3.0/input-device-example.sh
-
-%exclude /usr/lib/debug/usr/libexec/gsd*
-
