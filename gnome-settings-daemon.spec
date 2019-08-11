@@ -4,11 +4,12 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	3.32.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		revert-broken-auto-suspend.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:	pkgconfig(colord) >= 0.1.12
@@ -78,17 +79,17 @@ Conflicts:	gnome-panel < 3.7.0
 # The plugin can be disabled per user; so if user wants really minimal
 # functionality, they can disable the plugin using gsettings. As such, putting
 # these programs as Suggests instead of Requires
-Suggests:	gcalctool
-Suggests:	gnome-power-manager
-Suggests:	gnome-screenshot
-Suggests:	gnome-session
+Recommends:	gcalctool
+Recommends:	gnome-power-manager
+Recommends:	gnome-screenshot
+Recommends:	gnome-session
 # XXX - also wants one of:
 # 1. tracker-needle.desktop (preferred)
 # 2. gnome-search-tool.desktop (fallback)
 
 # ibus support
-Suggests:	ibus-gtk3
-Suggests:	ibus-gtk
+Recommends:	ibus-gtk3
+Recommends:	ibus-gtk
 
 
 %description
@@ -105,7 +106,7 @@ Include files for the GNOME settings daemon
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %meson
