@@ -16,6 +16,7 @@ BuildRequires:	pkgconfig(colord) >= 0.1.12
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1) >= 0.74
 BuildRequires:	pkgconfig(fontconfig)
+BuildRequires:  pkgconfig(gcr-base-3)
 BuildRequires:	pkgconfig(geoclue-2.0) >= 2.1.2
 BuildRequires:	pkgconfig(geocode-glib-1.0) >= 3.10.0
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
