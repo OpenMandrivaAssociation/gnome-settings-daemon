@@ -154,9 +154,6 @@ fi
 %{_libexecdir}/gsd-a11y-settings
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
 
-%{_libexecdir}/gsd-clipboard
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Clipboard.desktop
-
 %{_libexecdir}/gsd-color
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Color.desktop
 
@@ -173,9 +170,6 @@ fi
 
 %{_libexecdir}/gsd-media-keys
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.MediaKeys.desktop
-
-%{_libexecdir}/gsd-mouse
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Mouse.desktop
 
 %{_libexecdir}/gsd-power
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop
@@ -205,7 +199,6 @@ fi
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
 
 %{_libexecdir}/gsd-backlight-helper
-%{_libexecdir}/gsd-locate-pointer
 %{_libexecdir}/gsd-printer
 %{_libexecdir}/gsd-wacom-led-helper
 %{_libexecdir}/gsd-wacom-oled-helper
