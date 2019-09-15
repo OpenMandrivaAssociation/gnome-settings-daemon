@@ -221,6 +221,7 @@ fi
 %_userunitdir/*.service
 %_userunitdir/*.target
 %_userunitdir/gnome-session-initialized.target.wants/*.target
+%_userunitdir/gnome-session-x11-services.target.wants/gsd-xsettings.target
 
 %files devel
 %{_includedir}/gnome-settings-daemon-3.0
