@@ -202,6 +202,8 @@ fi
 %{_libexecdir}/gsd-printer
 %{_libexecdir}/gsd-wacom-led-helper
 %{_libexecdir}/gsd-wacom-oled-helper
+%{_libexecdir}/gsd-wwan
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Wwan.desktop
 
 %{_datadir}/gnome-settings-daemon/
 
@@ -214,6 +216,11 @@ fi
 
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.wwan.gschema.xml
+
+%_userunitdir/*.service
+%_userunitdir/*.target
+%_userunitdir/gnome-session-initialized.target.wants/*.target
 
 %files devel
 %{_includedir}/gnome-settings-daemon-3.0
