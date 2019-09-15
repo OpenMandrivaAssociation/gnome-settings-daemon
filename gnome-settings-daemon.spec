@@ -3,8 +3,8 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.32.1
-Release:	3
+Version:	3.34.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -16,6 +16,7 @@ BuildRequires:	pkgconfig(colord) >= 0.1.12
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1) >= 0.74
 BuildRequires:	pkgconfig(fontconfig)
+BuildRequires:  pkgconfig(gcr-base-3)
 BuildRequires:	pkgconfig(geoclue-2.0) >= 2.1.2
 BuildRequires:	pkgconfig(geocode-glib-1.0) >= 3.10.0
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
@@ -35,6 +36,7 @@ BuildRequires:	pkgconfig(libcanberra-gtk3)
 BuildRequires:	pkgconfig(libgnomekbd) >= 2.91.1
 BuildRequires:	pkgconfig(libgnomekbdui) >= 2.91.1
 BuildRequires:	pkgconfig(libnm)
+BuildRequires:  pkgconfig(mm-glib)
 BuildRequires:	pkgconfig(libnm-glib) >= 0.9.9.1
 BuildRequires:	pkgconfig(libnm-glib-vpn)
 BuildRequires:	pkgconfig(libnm-util) >= 0.9.9.1
@@ -152,9 +154,6 @@ fi
 %{_libexecdir}/gsd-a11y-settings
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
 
-%{_libexecdir}/gsd-clipboard
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Clipboard.desktop
-
 %{_libexecdir}/gsd-color
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Color.desktop
 
@@ -171,9 +170,6 @@ fi
 
 %{_libexecdir}/gsd-media-keys
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.MediaKeys.desktop
-
-%{_libexecdir}/gsd-mouse
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Mouse.desktop
 
 %{_libexecdir}/gsd-power
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop
@@ -203,10 +199,11 @@ fi
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
 
 %{_libexecdir}/gsd-backlight-helper
-%{_libexecdir}/gsd-locate-pointer
 %{_libexecdir}/gsd-printer
 %{_libexecdir}/gsd-wacom-led-helper
 %{_libexecdir}/gsd-wacom-oled-helper
+%{_libexecdir}/gsd-wwan
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Wwan.desktop
 
 %{_datadir}/gnome-settings-daemon/
 
@@ -219,6 +216,12 @@ fi
 
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.wwan.gschema.xml
+
+%_userunitdir/*.service
+%_userunitdir/*.target
+%_userunitdir/gnome-session-initialized.target.wants/*.target
+%_userunitdir/gnome-session-x11-services.target.wants/gsd-xsettings.target
 
 %files devel
 %{_includedir}/gnome-settings-daemon-3.0
