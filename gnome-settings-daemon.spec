@@ -37,9 +37,6 @@ BuildRequires:	pkgconfig(libgnomekbd) >= 2.91.1
 BuildRequires:	pkgconfig(libgnomekbdui) >= 2.91.1
 BuildRequires:	pkgconfig(libnm)
 BuildRequires:  pkgconfig(mm-glib)
-BuildRequires:	pkgconfig(libnm-glib) >= 0.9.9.1
-BuildRequires:	pkgconfig(libnm-glib-vpn)
-BuildRequires:	pkgconfig(libnm-util) >= 0.9.9.1
 BuildRequires:	pkgconfig(libnotify) >= 0.7.3
 BuildRequires:	pkgconfig(libpulse) >= 0.9.16
 BuildRequires:	pkgconfig(libpulse-mainloop-glib) >= 0.9.16
