@@ -3,7 +3,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.34.2
+Version:	3.36.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -201,6 +201,9 @@ fi
 %{_libexecdir}/gsd-wacom-oled-helper
 %{_libexecdir}/gsd-wwan
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Wwan.desktop
+%{_libexecdir}/gsd-usb-protection
+%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.UsbProtection.desktop
+%{_sysconfdir}/xdg/Xwayland-session.d/00-xrdb
 
 %{_datadir}/gnome-settings-daemon/
 
