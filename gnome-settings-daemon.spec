@@ -4,11 +4,12 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	3.38.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:     revert-broken-auto-suspend.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:	pkgconfig(colord) >= 0.1.12
