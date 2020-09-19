@@ -3,13 +3,12 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.36.1
+Version:	3.38.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		revert-broken-auto-suspend.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:	pkgconfig(colord) >= 0.1.12
@@ -157,7 +156,7 @@ fi
 %{_libexecdir}/gsd-datetime
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Datetime.desktop
 
-%{_libexecdir}/gsd-dummy
+#{_libexecdir}/gsd-dummy
 
 %{_libexecdir}/gsd-housekeeping
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Housekeeping.desktop
@@ -197,7 +196,6 @@ fi
 
 %{_libexecdir}/gsd-backlight-helper
 %{_libexecdir}/gsd-printer
-%{_libexecdir}/gsd-wacom-led-helper
 %{_libexecdir}/gsd-wacom-oled-helper
 %{_libexecdir}/gsd-wwan
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Wwan.desktop
@@ -220,8 +218,8 @@ fi
 
 %_userunitdir/*.service
 %_userunitdir/*.target
-%_userunitdir/gnome-session-initialized.target.wants/*.target
-%_userunitdir/gnome-session-x11-services.target.wants/gsd-xsettings.target
+%_userunitdir/gnome-session-x11-services-ready.target.wants/org.gnome.SettingsDaemon.XSettings.service
+%_userunitdir/gnome-session-x11-services.target.wants/org.gnome.SettingsDaemon.XSettings.service
 
 %files devel
 %{_includedir}/gnome-settings-daemon-3.0
