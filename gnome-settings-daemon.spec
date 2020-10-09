@@ -3,8 +3,8 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.38.0
-Release:	2
+Version:	3.38.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -108,6 +108,8 @@ Include files for the GNOME settings daemon
 %autopatch -p1
 
 %build
+#Don't even think about switch back to Clang. Clang here is broken as f... at runtime. So if you dare change it to Clang, first test if this package works
+# at runtime in latest gnome. (angry)
 export CC=gcc
 export CXX=g++
 %meson
