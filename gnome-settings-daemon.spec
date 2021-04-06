@@ -1,9 +1,11 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
+%define api 40
+
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	3.38.1
+Version:	40.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -130,7 +132,7 @@ fi
 
 %files -f %{name}.lang
 %doc AUTHORS COPYING NEWS
-%dir %{_libdir}/gnome-settings-daemon-3.0
+%dir %{_libdir}/gnome-settings-daemon-%{api}
 
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.power.gschema.xml
 
@@ -148,7 +150,7 @@ fi
 
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.color.gschema.xml
 
-%{_libdir}/gnome-settings-daemon-3.0/libgsd.so
+%{_libdir}/gnome-settings-daemon-%{api}/libgsd.so
 
 %{_libexecdir}/gsd-a11y-settings
 %{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
@@ -225,5 +227,5 @@ fi
 %_userunitdir/gnome-session-x11-services.target.wants/org.gnome.SettingsDaemon.XSettings.service
 
 %files devel
-%{_includedir}/gnome-settings-daemon-3.0
+%{_includedir}/gnome-settings-daemon-%{api}
 %{_libdir}/pkgconfig/gnome-settings-daemon.pc
