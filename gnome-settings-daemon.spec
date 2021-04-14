@@ -5,7 +5,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	40.0
+Version:	40.0.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
