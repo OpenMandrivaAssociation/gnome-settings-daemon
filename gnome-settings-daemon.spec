@@ -30,7 +30,7 @@ BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.3.0
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
 BuildRequires:	pkgconfig(gudev-1.0)
-BuildRequires:	pkgconfig(gweather-3.0) >= 3.9.5
+BuildRequires:	pkgconfig(gweather4)
 BuildRequires:	pkgconfig(ibus-1.0) >= 1.4.99.2012100
 BuildRequires:	pkgconfig(kbproto)
 BuildRequires:	pkgconfig(lcms2) >= 2.2
