@@ -1,12 +1,12 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api 41
+%define api 42
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	41.0
-Release:	2
+Version:	42.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -30,7 +30,7 @@ BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.3.0
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
 BuildRequires:	pkgconfig(gudev-1.0)
-BuildRequires:	pkgconfig(gweather-3.0) >= 3.9.5
+BuildRequires:	pkgconfig(gweather4)
 BuildRequires:	pkgconfig(ibus-1.0) >= 1.4.99.2012100
 BuildRequires:	pkgconfig(kbproto)
 BuildRequires:	pkgconfig(lcms2) >= 2.2
