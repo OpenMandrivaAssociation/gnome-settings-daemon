@@ -210,7 +210,8 @@ fi
 
 %{_datadir}/gnome-settings-daemon/
 
-/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
+#/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
+
 
 %{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.power.policy
 %{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.wacom.policy
