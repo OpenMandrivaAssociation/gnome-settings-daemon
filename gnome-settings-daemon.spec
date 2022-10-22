@@ -6,7 +6,7 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	43.0
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -22,7 +22,7 @@ BuildRequires:	pkgconfig(dbus-glib-1) >= 0.74
 BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:  pkgconfig(gcr-4)
 BuildRequires:	pkgconfig(geoclue-2.0) >= 2.1.2
-BuildRequires:	pkgconfig(geocode-glib-1.0) >= 3.10.0
+BuildRequires:	pkgconfig(geocode-glib-2.0)
 BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.29.14
@@ -112,7 +112,7 @@ Include files for the GNOME settings daemon
 %autopatch -p1
 
 %build
-#Don't even think about switch back to Clang. Clang here is broken as f... at runtime. So if you dare change it to Clang, first test if this package works
+# Don't even think about switch back to Clang. Clang here is broken as f... at runtime. So if you dare change it to Clang, first test if this package works
 # at runtime in latest gnome. (angry)
 export CC=gcc
 export CXX=g++
