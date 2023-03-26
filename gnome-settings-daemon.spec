@@ -12,8 +12,6 @@ Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 #Patch0:   revert-broken-auto-suspend.patch
-# Upstream
-Patch1:   309.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:	pkgconfig(colord) >= 0.1.12
