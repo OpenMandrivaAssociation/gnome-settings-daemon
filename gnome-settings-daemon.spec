@@ -1,19 +1,17 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api 43
+%define api 44
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	43.0
-Release:	4
+Version:	44.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:   revert-broken-auto-suspend.patch
-# Upstream
-Patch1:   309.patch
+#Patch0:   revert-broken-auto-suspend.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:	pkgconfig(colord) >= 0.1.12
