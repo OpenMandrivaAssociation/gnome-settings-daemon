@@ -1,11 +1,11 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api 45
+%define api 46
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	45.1
+Version:	46.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
