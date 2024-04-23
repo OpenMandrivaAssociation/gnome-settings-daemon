@@ -6,11 +6,11 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	46.0
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-Url:		http://www.gnome.org/
-Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://www.gnome.org/
+Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 #Patch0:   revert-broken-auto-suspend.patch
 
 BuildRequires:  pkgconfig(alsa)
@@ -82,16 +82,11 @@ Conflicts:	gnome-panel < 3.7.0
 # these programs as Suggests instead of Requires
 Recommends:	gcalctool
 Recommends:	gnome-power-manager
-Recommends:	gnome-screenshot
 Recommends:	gnome-session
-# XXX - also wants one of:
-# 1. tracker-needle.desktop (preferred)
-# 2. gnome-search-tool.desktop (fallback)
 
 # ibus support
 Recommends:	ibus-gtk3
 Recommends:	ibus-gtk4
-
 
 %description
 GNOME settings daemon manages the configuration of the desktop in the
