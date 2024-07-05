@@ -6,7 +6,7 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	46.0
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://www.gnome.org/
@@ -107,8 +107,8 @@ Include files for the GNOME settings daemon
 %build
 # Don't even think about switch back to Clang. Clang here is broken as f... at runtime. So if you dare change it to Clang, first test if this package works
 # at runtime in latest gnome. (angry)
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %meson
 %meson_build
 
