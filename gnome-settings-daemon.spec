@@ -6,7 +6,7 @@
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
 Version:	46.0
-Release:	3
+Release:  4	
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://www.gnome.org/
@@ -82,7 +82,7 @@ Conflicts:	gnome-panel < 3.7.0
 # these programs as Suggests instead of Requires
 Recommends:	gcalctool
 Recommends:	gnome-power-manager
-Recommends:	gnome-session
+#Recommends:	gnome-session
 
 # ibus support
 Recommends:	ibus-gtk3
