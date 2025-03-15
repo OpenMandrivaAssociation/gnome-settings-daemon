@@ -145,6 +145,8 @@ fi
 
 %{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.plugins.color.gschema.xml
 
+%{_datadir}/glib-2.0/schemas/org.gnome.settings-daemon.global-shortcuts.gschema.xml
+
 %{_libdir}/gnome-settings-daemon-%{api}/libgsd.so
 
 %{_libexecdir}/gsd-a11y-settings
