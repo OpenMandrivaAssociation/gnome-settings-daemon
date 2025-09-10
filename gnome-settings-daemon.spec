@@ -5,7 +5,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	48.1
+Version:	49.rc
 Release:  1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -25,10 +25,10 @@ BuildRequires:	pkgconfig(gio-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.29.14
 BuildRequires:	pkgconfig(gmodule-2.0)
-BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 3.1.5
+BuildRequires:	pkgconfig(gnome-desktop-4)
 BuildRequires:	pkgconfig(gsettings-desktop-schemas) >= 3.3.0
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.4
+BuildRequires:	pkgconfig(gtk4)
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(gweather4)
 BuildRequires:	pkgconfig(ibus-1.0) >= 1.4.99.2012100
