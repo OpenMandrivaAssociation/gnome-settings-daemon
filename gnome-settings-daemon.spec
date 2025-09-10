@@ -1,7 +1,7 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api 48
+%define api 49
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
@@ -101,15 +101,16 @@ Conflicts:	libgnome-window-settings-devel < 2.21.5
 Include files for the GNOME settings daemon
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 # Don't even think about switch back to Clang. Clang here is broken as f... at runtime. So if you dare change it to Clang, first test if this package works
 # at runtime in latest gnome. (angry)
 export CC=gcc
 export CXX=g++
-%meson
+%meson  \
+        -Dx11=true \
+        -Dxwayland=true
 %meson_build
 
 %install
@@ -150,68 +151,43 @@ fi
 %{_libdir}/gnome-settings-daemon-%{api}/libgsd.so
 
 %{_libexecdir}/gsd-a11y-settings
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
 
 %{_libexecdir}/gsd-color
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Color.desktop
 
 %{_libexecdir}/gsd-datetime
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Datetime.desktop
-
-#{_libexecdir}/gsd-dummy
 
 %{_libexecdir}/gsd-housekeeping
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Housekeeping.desktop
 
 %{_libexecdir}/gsd-keyboard
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Keyboard.desktop
 
 %{_libexecdir}/gsd-media-keys
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.MediaKeys.desktop
 
 %{_libexecdir}/gsd-power
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop
 
 %{_libexecdir}/gsd-print-notifications
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.PrintNotifications.desktop
 
 %{_libexecdir}/gsd-rfkill
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Rfkill.desktop
 
 %{_libexecdir}/gsd-screensaver-proxy
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.ScreensaverProxy.desktop
 
 %{_libexecdir}/gsd-sharing
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Sharing.desktop
 
 %{_libexecdir}/gsd-smartcard
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Smartcard.desktop
 
 %{_libexecdir}/gsd-sound
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Sound.desktop
 
 %{_libexecdir}/gsd-wacom
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Wacom.desktop
 
 %{_libexecdir}/gsd-xsettings
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
 
-%{_libexecdir}/gsd-backlight-helper
 %{_libexecdir}/gsd-printer
-%{_libexecdir}/gsd-wacom-oled-helper
 %{_libexecdir}/gsd-wwan
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.Wwan.desktop
 %{_libexecdir}/gsd-usb-protection
-%{_sysconfdir}/xdg/autostart/org.gnome.SettingsDaemon.UsbProtection.desktop
 %{_sysconfdir}/xdg/Xwayland-session.d/00-xrdb
 
 %{_datadir}/gnome-settings-daemon/
 
 %{_prefix}/lib/udev/rules.d/61-gnome-settings-daemon-rfkill.rules
-
-
-%{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.power.policy
-%{_datadir}/polkit-1/actions/org.gnome.settings-daemon.plugins.wacom.policy
 
 %{_datadir}/GConf/gsettings/gnome-settings-daemon.convert
 
