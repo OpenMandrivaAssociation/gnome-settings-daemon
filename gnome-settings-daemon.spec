@@ -176,8 +176,6 @@ fi
 
 %{_libexecdir}/gsd-sound
 
-%{_libexecdir}/gsd-wacom
-
 %{_libexecdir}/gsd-xsettings
 
 %{_libexecdir}/gsd-printer
