@@ -5,7 +5,7 @@
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	49.rc
+Version:	49.0
 Release:  1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
