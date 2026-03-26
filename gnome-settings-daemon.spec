@@ -1,11 +1,11 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api 49
+%define api 50
 
 Summary:	GNOME Settings Daemon
 Name:		gnome-settings-daemon
-Version:	49.1
+Version:	50.0
 Release:  1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -109,7 +109,6 @@ Include files for the GNOME settings daemon
 export CC=gcc
 export CXX=g++
 %meson  \
-        -Dx11=true \
         -Dxwayland=true
 %meson_build
 
