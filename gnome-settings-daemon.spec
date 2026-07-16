@@ -61,6 +61,7 @@ BuildRequires:	ldetect-lst
 BuildRequires:	xsltproc
 BuildRequires:	docbook-style-xsl
 BuildRequires:	gettext-devel
+BuildRequires:	atomic-devel
 BuildRequires:	meson
 BuildRequires:  pkgconfig(krb5)
 BuildRequires:  pkgconfig(com_err)
